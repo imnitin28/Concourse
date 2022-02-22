@@ -31,6 +31,3 @@ jobs:
         passed: [test]
       - task: mvn-package
         file: "spring-boot-service/concourse_ci/tasks/maven-package.yml"
-      - put: spring-boot-service-docker-repository
-        params:
-          build: spring-boot-service-out
