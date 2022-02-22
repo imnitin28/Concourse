@@ -9,7 +9,7 @@ resources:
   - name: spring-boot-service
     type: git
     source:
-      uri: https://github.com/imnitin28/concourse-ci-cd.git
+      uri: https://github.com/imnitin28/Concourse.git
       branch: master
 
   # - name: spring-boot-service-docker-repository
