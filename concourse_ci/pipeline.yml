@@ -10,7 +10,7 @@ resources:
     type: git
     source:
       uri: https://github.com/imnitin28/Concourse.git
-      branch: master
+      branch: main
 
   # - name: spring-boot-service-docker-repository
   #   type: docker-image
