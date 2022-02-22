@@ -12,22 +12,6 @@ resources:
       uri: https://github.com/imnitin28/Concourse.git
       branch: main
 
-  # - name: spring-boot-service-docker-repository
-  #   type: docker-image
-  #   source:
-  #     email: ((docker-hub-email))
-  #     username: ((docker-hub-username))
-  #     password: ((docker-hub-password))
-  #     repository: ((docker-hub-username))/((docker-hub-repo-name))
-
-  # - name: kubectl
-  #   type: kubectl-resource
-  #   source:
-  #     api_server_uri: ((server))
-  #     namespace: ((namespace))
-  #     certificate_authority_data: ((cad))
-  #     token: ((token))
-
 jobs:
   - name: test
     public: true
@@ -47,18 +31,6 @@ jobs:
         passed: [test]
       - task: mvn-package
         file: "spring-boot-service/concourse_ci/tasks/maven-package.yml"
-      # - put: spring-boot-service-docker-repository
-      #   params:
-      #     build: spring-boot-service-out
-
-  # - name: deploy
-  #   public: true
-  #   serial: true
-  #   plan:
-  #     - get: spring-boot-service
-  #       trigger: false
-  #       passed: [package]
-
-  #     - put: kubectl
-  #       params:
-  #         file: "spring-boot-service/spring-boot-deploy.yaml"
+      - put: spring-boot-service-docker-repository
+        params:
+          build: spring-boot-service-out
