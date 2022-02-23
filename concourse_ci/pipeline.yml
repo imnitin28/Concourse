@@ -1,10 +1,3 @@
-resource_types:
-  - name: kubectl-resource
-    type: docker-image
-    source: 
-      repository: jmkarthik/concourse-kubectl-resource
-      tag: latest
-
 resources:
   - name: spring-boot-service
     type: git
